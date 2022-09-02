@@ -35,9 +35,6 @@ const newsCategories = (data) => {
                    <div class="card-body">
                         <h1 class="card-title text-2xl">${news.title}</h1>
                         <p>${news.details.slice(0, 200) + "....."}</p>
-                         <div class="card-actions justify-end">
-                             <button class="btn btn-primary">Watch</button>
-                           </div>
                           <div class="flex">
                                <img class="w-14 rounded-full" src="${news.author.img}" />
                                 <div class="ml-5">
@@ -52,9 +49,12 @@ const newsCategories = (data) => {
                                <i class="fa-regular fa-star"></i>
                                <i class="fa-regular fa-star"></i>
                                </span>
-                          </div>
-                     </div>
+                               <span class="ml-72"><button class="btn glass">Details</button></span>
+                            </div>
+                    </div>
+                          
                 </div>
+            
            `;
     displayDiv.appendChild(div);
   });
