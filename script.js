@@ -26,7 +26,6 @@ const newsCategories = (data) => {
   const displayDiv = document.getElementById("blogs");
   displayDiv.innerHTML = "";
   data.forEach((news) => {
-    console.log(news);
     const div = document.createElement("div");
     div.classList.add("news-blogs");
     div.innerHTML = `
