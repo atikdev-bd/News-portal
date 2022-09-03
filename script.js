@@ -32,8 +32,7 @@ const countCategories = (id) => {
 const newsCategories = (data) => {
   const countCategories = document.getElementById("text-id");
   if (data.length === 0) {
-    countCategories.innerText =
-      "Items not found for this category";
+    countCategories.innerText = "Items not found for this category";
     toggleSpiner(false);
   } else {
     countCategories.innerText =
@@ -42,10 +41,12 @@ const newsCategories = (data) => {
 
   const displayDiv = document.getElementById("blogs");
   displayDiv.innerHTML = "";
-  data.forEach((news) => {
-    const div = document.createElement("div");
-    div.classList.add("news-blogs");
-    div.innerHTML = `
+  data
+    .sort((a, b) => b.total_view - a.total_view)
+    .forEach((news) => {
+      const div = document.createElement("div");
+      div.classList.add("news-blogs");
+      div.innerHTML = `
                 <div class="card card-side bg-base-100 shadow-xl mx-16">
                    <figure><img src="${news.thumbnail_url}" alt=""></figure>
                    <div class="card-body">
@@ -57,7 +58,9 @@ const newsCategories = (data) => {
                                }" />
                                 <div class="ml-5">
                                  <p> ${
-                                   news.author.name ? news.author.name : "Missing Data"
+                                   news.author.name
+                                     ? news.author.name
+                                     : "Missing Data"
                                  }</p>
                                  <p> ${
                                    news.author.published_date
@@ -82,9 +85,9 @@ const newsCategories = (data) => {
                    </div>             
                 </div>
            `;
-    displayDiv.appendChild(div);
-    toggleSpiner(false);
-  });
+      displayDiv.appendChild(div);
+      toggleSpiner(false);
+    });
 };
 
 /// SPPINER SECTION ////
