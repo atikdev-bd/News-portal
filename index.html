@@ -23,7 +23,7 @@
     <div class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
         <h3 class="font-bold text-lg">
-          Question : What is the difference between var, let and const ?
+         1/ Question : What is the difference between var, let and const ?
         </h3>
         <p class="py-4">
           Ans : The scope of a var variable is functional scope. The scope of a
@@ -31,8 +31,8 @@
           scope. It can be updated and re-declared into the scope.
         </p>
         <h3 class="font-bold text-lg">
-          Question : What is the difference between arrow function and regular
-          function?
+          2/ Question : What is the difference between arrow function and regular
+          function ?
         </h3>
         <p class="py-4">
           Ans : Regular functions are constructible, they can be called using
@@ -41,7 +41,7 @@
           functions.
         </p>
         <h3 class="font-bold text-lg">
-          Question : Why should we use template string?
+          3/ Question : Why should we use template string ?
         </h3>
         <p class="py-4">
           Ans : Template strings are a powerful feature of modern JavaScript
@@ -56,6 +56,7 @@
       </div>
     </div>
     <!-- navbar question modal end -->
+
     <!-- navbar start -->
     <div class="navbar bg-base-300">
       <div class="flex-1 ml-5">
@@ -91,7 +92,8 @@
       </div>
     </div>
     <!-- navbar end -->
-    <!-- modal section -->
+
+    <!-- modal section start -->
     <section>
       <input type="checkbox" id="my-modal-3" class="modal-toggle" />
       <div class="modal">
@@ -111,22 +113,30 @@
         </div>
       </div>
     </section>
+    <!-- modal section end -->
+
     <!-- header section start -->
     <section>
-      <div id="categories" class="flex justify-around text-2xl mt-16"></div>
+      <div id="categories" class="flex justify-around text-2xl font-medium mt-16"></div>
       <div class="mt-16">
-        <input
-          type="text"
-          placeholder="Type here"
-          class="input input-bordered input-white w-full max-w-x"
-        />
+    
+        <h1 id="text-id" class="input input-bordered input-white w-full max-w-x text-xl font-medium pt-2"></h1>
       </div>
     </section>
     <!-- header section end -->
+
     <!-- news blog start -->
     <main>
-      <section class="mt-16" id="blogs"></section>
+      <!-- loading spinner -->
+      <div id="toggle" class="text-center mt-12 hidden">
+        <progress class="progress w-56"></progress>
+      </div>
+      <section class="mt-16" id="blogs">
+
+      </section>
     </main>
+    <!-- news blog start -->
+
     <!-- footer start -->
     <section class="mt-96">
       <footer class="footer items-center p-4 bg-neutral text-neutral-content">
@@ -189,6 +199,7 @@
         </div>
       </footer>
     </section>
+    <!-- footer start end -->
     <script src="script.js"></script>
   </body>
 </html>
