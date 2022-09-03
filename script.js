@@ -7,7 +7,6 @@ const newsApi = () => {
 };
 
 const displayCategories = (categories) => {
-  
   const displayDiv = document.getElementById("categories");
   categories.forEach((categorie) => {
     const div = document.createElement("div");
@@ -22,8 +21,6 @@ const displayCategories = (categories) => {
   });
 };
 
-
-
 const countCategories = (id) => {
   toggleSpiner(true);
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
@@ -33,19 +30,19 @@ const countCategories = (id) => {
     .catch((error) => console.log(error));
 };
 const newsCategories = (data) => {
-  const countCategories = document.getElementById('text-id');
-  if(data.length === 0){
-  countCategories.innerText = data.length + ' ' +'items found for this category'
-  toggleSpiner(false);
+  const countCategories = document.getElementById("text-id");
+  if (data.length === 0) {
+    countCategories.innerText =
+      "Items not found for this category";
+    toggleSpiner(false);
+  } else {
+    countCategories.innerText =
+      data.length + " " + "items found for this category";
   }
-  else{
-    countCategories.innerText = data.length + ' ' +'items found for this category'
-  }
-  
+
   const displayDiv = document.getElementById("blogs");
   displayDiv.innerHTML = "";
   data.forEach((news) => {
-    
     const div = document.createElement("div");
     div.classList.add("news-blogs");
     div.innerHTML = `
@@ -53,14 +50,14 @@ const newsCategories = (data) => {
                    <figure><img src="${news.thumbnail_url}" alt=""></figure>
                    <div class="card-body">
                         <h1 class="card-title text-2xl">${news.title}</h1>
-                        <p>${news.details.slice(0, 200) + "....."}</p>
-                          <div class="flex">
+                        <p>${news.details.slice(0, 200) + "..."}</p>
+                          <div class="block lg:flex">
                                <img class="w-14 rounded-full" src="${
                                  news.author.img
                                }" />
                                 <div class="ml-5">
                                  <p> ${
-                                   news.author.name ? news.author.name : "N/A"
+                                   news.author.name ? news.author.name : "Missing Data"
                                  }</p>
                                  <p> ${
                                    news.author.published_date
@@ -80,7 +77,7 @@ const newsCategories = (data) => {
                                </span>                             
                                <span class="ml-72"><label onclick="idApi('${
                                  news._id
-                               }')" for="my-modal-3" class="btn glass modal-button">Details</label></span>
+                               }')" for="my-modal-3" class="btn glass text-sky-600 font-bold modal-button">Details</label></span>
                             </div>
                    </div>             
                 </div>
@@ -111,8 +108,6 @@ const idApi = (id) => {
 const modalDisplay = (datas) => {
   const modalDiv = document.getElementById("modal-id");
   datas.forEach((data) => {
-    console.log(data);
-
     modalDiv.innerHTML = `
     <label
             for="my-modal-3"
